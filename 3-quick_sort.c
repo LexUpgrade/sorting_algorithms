@@ -1,6 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
-#include <stdbool.h>
 
 void swap_rec(int *num1, int *num2);
 int lomuto_partition(int *array, int start, int end, size_t size);
@@ -27,7 +25,7 @@ void swap_ints(int *num1, int *num2)
  * lomuto_partition - Sorts a partition of an array.
  * @array: Array to be  sorted.
  * @low: Starting index.
- * @hihg: Ending index.
+ * @high: Ending index.
  * @size: Size of the array.
  *
  * Return: void.
@@ -40,22 +38,29 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 	partitionIndex = low;
 	for (i = low; i < high; i++)
 	{
-		if (array[i] <= pivot)
+		if (array[i] < pivot)
 		{
-			swap_ints(&array[partitionIndex], &array[i]);
+			if (partitionIndex < i)
+			{
+				swap_ints(&array[partitionIndex], &array[i]);
+				print_array(array, size);
+			}
 			partitionIndex++;
 		}
 	}
-	swap_ints(&array[partitionIndex], &array[high]);
-	print_array(array, size);
+	if (array[partitionIndex] > pivot)
+	{
+		swap_ints(&array[partitionIndex], &array[high]);
+		print_array(array, size);
+	}
 	return (partitionIndex);
 }
 
 /**
  * recursive_quick_sort - Sort an array of integers
  * @array: Array to sort
- * @start: Beginning of the array
- * @end: End of the array
+ * @left: Beginning of the array
+ * @right: End of the array
  * @size: Size of the array.
  *
  * Return: Pivot index.
