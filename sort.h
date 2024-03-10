@@ -2,6 +2,7 @@
 #define _SORT_H_
 
 #include <stddef.h>
+#include <stdlib.h>
 
 /* Comparison direction macros for bitonic sort */
 #define UP 0
