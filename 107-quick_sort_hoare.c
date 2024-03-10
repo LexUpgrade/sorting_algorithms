@@ -21,7 +21,7 @@ void swap_ints(int *a, int *b)
 
 /**
  * hoare_partition - Order a subset of an array of integers
- *                   according to the hoare partition scheme.
+ * according to the hoare partition scheme.
  * @array: The array of integers.
  * @size: The size of the array.
  * @left: The starting index of the subset to order.
@@ -79,7 +79,7 @@ void hoare_sort(int *array, size_t size, int left, int right)
 
 /**
  * quick_sort_hoare - Sort an array of integers in ascending
- *                    order using the quicksort algorithm.
+ * order using the quicksort algorithm.
  * @array: An array of integers.
  * @size: The size of the array.
  *
